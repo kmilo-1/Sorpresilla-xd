@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB KAMILET</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            cursor: pointer;
+        }
+        #clickMessage {
+            font-size: 2em;
+            color: white;
+            text-align: center;
+        }
+        #scareImage {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="clickMessage">Haz click aquí...</div>
+    <img id="scareImage" src="https://media.tenor.com/lDSnEQkUaoAAAAAC/fnaf-jumpscare.gif" alt="Jumpscare">
+    
+    <audio id="scareSound" src="jumpscare.mp3" preload="auto"></audio>
+
+    <script>
+        document.body.addEventListener('click', function() {
+            // Ocultar el mensaje de clic y mostrar la imagen del susto
+            document.getElementById('clickMessage').style.display = 'none';
+            document.getElementById('scareImage').style.display = 'block';
+            
+            // Reproducir el sonido del susto
+            var scareSound = document.getElementById('scareSound');
+            scareSound.play();
+         
+            // Esperar 1 segundo (1000 ms) y luego poner la pantalla en negro
+             setTimeout(function() {
+                scareImage.style.display = 'none';  // Ocultar la imagen
+                document.body.style.backgroundColor = 'black';  // Fondo negro
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
